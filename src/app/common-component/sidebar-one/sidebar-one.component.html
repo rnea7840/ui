@@ -1,0 +1,111 @@
+<!-- Sidebar -->
+<div
+  class="sidebar"
+  id="sidebar"
+  (mouseover)="miniSideBarMouseHover('over')"
+  (mouseout)="miniSideBarMouseHover('out')"
+>
+  <div class="sidebar-inner slimscroll">
+    <perfect-scrollbar>
+      <div id="sidebar-menu" class="sidebar-menu">
+        <ul style="margin-top: 20px;">
+          <img src="../../../assets/img/logo.png" alt="" class="imgg">
+          <ng-container *ngFor="let mainMenus of sidebarData">
+            <ng-container *ngFor="let menu of mainMenus.subRoutes">
+              <li
+                *ngIf="
+                  menu.hasSubRoute == false &&
+                  (mainMenus.tittle == 'Main Menu' ||
+                    mainMenus.tittle == 'Components')
+                "
+                [class.active]="menu.activeRoute == activePath"
+              >
+                <a [routerLink]="menu.route"
+                  ><img [src]="menu.icon" alt="icon" /><span>
+                    {{ menu.tittle }}
+                  </span>
+                </a>
+              </li>
+              <ng-container *ngIf="menu.hasSubRoute == true">
+                <li class="submenu">
+                  <a
+                    [ngClass]="{
+                      active: activePath === menu.activeRoute,
+                      subdrop: menu.showSubRoute == true
+                    }"
+                    (click)="showSubMenus(menu)"
+                    ><img [src]="menu.icon" alt="img" /><span>
+                      {{ menu.tittle }}</span
+                    >
+                    <span class="menu-arrow"></span
+                  ></a>
+                  <ul
+                    [ngClass]="
+                      menu.showSubRoute == true
+                        ? 'show-sub-menu'
+                        : 'hide-sub-menu'
+                    "
+                  >
+                    <ng-container *ngFor="let subDropMenus of menu.subRoutes">
+                      <li>
+                        <a
+                          [routerLink]="subDropMenus.route"
+                          routerLinkActive="active"
+                          >{{ subDropMenus.tittle }}</a
+                        >
+                      </li>
+
+                      
+                    </ng-container>
+                  </ul>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+
+         
+
+
+          
+
+        </ul>
+
+      </div>
+      <div class="bottom-content mt-auto d-flex align-items-center justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a
+        ><img
+          src="assets/img/icons/logout.svg"
+          class="me-2"
+          alt="img"
+        />  </a><label style="margin-bottom: 4px;
+        font-size: 16px; cursor: pointer; ">Logout</label>
+      </div>
+    </perfect-scrollbar>
+  </div>
+</div>
+<!-- /Sidebar -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog-centered modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-flex justify-content-center flex-column text-center align-center">
+          <img
+          src="assets/img/logout1.svg"
+          class="imglogout"
+          alt="img"
+        />
+
+        <h4 class="m-0 mt-3">Logout</h4>
+        <p class="m-0">Are you sure you want to logout from 
+          the portal?</p>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center align-center">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary ml-3" data-bs-dismiss="modal" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>

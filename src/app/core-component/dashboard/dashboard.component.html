@@ -1,0 +1,1775 @@
+
+<div class="row p-3 d-flex align-center">
+<div class="col-7">
+<h2 >
+  <i *ngIf="NewProject" class="bi bi-arrow-left-short" style="-webkit-text-stroke: 2px;" (click)="backDashboard()"></i>
+  <i *ngIf="projectDetails" class="bi bi-arrow-left-short" style="-webkit-text-stroke: 2px;" (click)="backDetails()"></i> 
+  {{NewProject ? "New Project" : projectDetails ? "Project Details"  : "Dashboard"}}
+</h2>
+</div>
+<div class="col-5">
+  <ul class="d-flex">
+    <li>
+        <button type="button" class="btn btn-primary button1" (click)="createNewProject()" [disabled]="NewProject || projectDetails">+ Create New Project</button>
+    </li>
+    <li class="p-2 mx-3">
+      <i class="bi bi-bell-fill h4"></i>
+    </li>
+    <li>
+      <ul class="list-unstyled">
+        <li class="media">
+<div class="imgMedia">
+  <img src="../../../assets/img/Ellipse 32.png"  alt="User Image">
+</div>
+          <div class="media-body pl-2 mt-1">
+            <p class="m-0">Hello,</p>
+            <h4 class="m-0 txt">Deniz Warren</h4>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+  
+</div>
+
+
+<div class="row p-3" *ngIf="!NewProject && !projectDetails">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-center">
+          <h5 class="m-0 font-weight-bold">Statistics</h5>
+          <p class="m-0">View More <i class="bi bi-chevron-right"></i></p>
+        </div>
+        <div class="d-flex justify-content-between mt-3 align-center">
+           <p class="m-0">All Project</p>
+          <p class="m-0">9</p>
+        </div>
+
+        <hr style="opacity: 0.1 !important;">
+
+        <div class="d-flex justify-content-between mt-3 align-center">
+          <p class="m-0"> <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> Source Code</p>
+         <p class="m-0">9</p>
+       </div>
+
+
+       <div class="d-flex justify-content-between mt-3 align-center">
+        <p class="m-0"> <i class="bi bi-upc h6" style="-webkit-text-stroke: 1px;"></i> All Project</p>
+       <p class="m-0">9</p>
+     </div>
+
+     <div class="d-flex justify-content-between mt-3 align-center">
+      <p class="m-0">  <i class="bi bi-file-binary" style="-webkit-text-stroke: 1px;"></i> Binary</p>
+     <p class="m-0">9</p>
+   </div>
+
+   <div class="d-flex justify-content-between mt-3 align-center">
+    <p class="m-0">  <i class="bi bi-hdd-stack-fill" style="-webkit-text-stroke: 1px;"></i> Server</p>
+   <p class="m-0">9</p>
+ </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">White - Blacklist</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <img style="height: 32px;" class="mr-2" src="../../../assets/img/w.png" alt=""> <label class="h6 m-0 ">0</label>
+          <img style="height: 32px;" class="mr-2 ml-4" src="../../../assets/img/b.png" alt=""> <label class="h6 m-0">0</label>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">User Defined Issues</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <img style="height: 32px;" class="mr-2" src="../../../assets/img/fn.png" alt=""> <label class="h6 m-0 ">0</label>
+          <img style="height: 32px;" class="mr-2 ml-4" src="../../../assets/img/fn.png" alt=""> <label class="h6 m-0">0</label>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card" style="    height: 300px;">
+      <div class="card-body">
+        <h3 class="card-title">Vulnerability</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <div id="chart">
+
+            <apx-chart
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [labels]="chartOptions.labels"
+              [grid]="chartOptions.grid"
+              [plotOptions]="chartOptions.plotOptions"
+              [responsive]="chartOptions.responsive"
+              [dataLabels]="chartOptions.dataLabels"
+              [colors]="chartOptions.colors"
+            ></apx-chart>
+
+
+            <p class="h1 vulcount">318</p>
+            <p class="vul">Vulnerability</p>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-6">
+    <div class="card" style="    height: 300px;">
+      <div class="card-body">
+        <h3 class="card-title">Licenses</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <div id="chart">
+
+            <apx-chart
+              [series]="chartOptions2.series"
+              [chart]="chartOptions2.chart"
+              [labels]="chartOptions2.labels"
+              [grid]="chartOptions2.grid"
+              [plotOptions]="chartOptions2.plotOptions"
+              [responsive]="chartOptions2.responsive"
+              [dataLabels]="chartOptions2.dataLabels"
+              [colors]="chartOptions2.colors"
+            ></apx-chart>
+
+
+            <p class="h1 vulcount"  style="top: -72px;
+            left: 118px;">112</p>
+            <p class="vul" style="top: -80px;
+            left: 118px;">Orders</p>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="col-12">
+    <div class="card" style="    height: 400px;">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-center">
+          <h5 class="m-0 font-weight-bold">Latest Analyzed Project</h5>
+          <p class="m-0 h6 font-weight-bold" style="color: #5EBB46;">View All </p>
+        </div>
+         <div class="row mt-3">
+          <div class="col-4">
+            <div class="card" style="border-radius: 10px;">
+              <div class="upperbar">
+                <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> CICD Demo
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Componenets</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.components" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">3-Layer</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.threelayVuln" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Licenses</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.licenses" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2" >
+                  <p class="m-0">White . Blacklist</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/w.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].white}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/b.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].black}}</label>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">User Defined Issues</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].fn}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].source}}</label>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="bottombar d-flex justify-content-between" >
+               <p class="mt-2">Last Analysis: 2023.04.11. 15:15</p>
+               
+               <button type="button" class="btn btn-outline-info d-flex align-center analyzeBTN"  >Analyze</button>
+              
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-4">
+            <div class="card" style="border-radius: 10px;">
+              <div class="upperbar">
+                <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> MongoDB Scan
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Componenets</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.components" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">3-Layer</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.threelayVuln" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Licenses</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.licenses" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2" >
+                  <p class="m-0">White . Blacklist</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/w.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].white}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/b.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].black}}</label>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">User Defined Issues</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].fn}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].source}}</label>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="bottombar d-flex justify-content-between" >
+               <p class="mt-2">Last Analysis: 2023.04.11. 15:15</p>
+               
+               <button type="button" class="btn btn-outline-info d-flex align-center analyzeBTN"  >Analyze</button>
+              
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-4">
+            <div class="card" style="border-radius: 10px;">
+              <div class="upperbar">
+                <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> nopCommerce
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Componenets</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.components" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">3-Layer</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.threelayVuln" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Licenses</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.licenses" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2" >
+                  <p class="m-0">White . Blacklist</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/w.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].white}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/b.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].black}}</label>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">User Defined Issues</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].fn}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].source}}</label>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="bottombar d-flex justify-content-between" >
+               <p class="mt-2">Last Analysis: 2023.04.11. 15:15</p>
+               
+               <button type="button" class="btn btn-outline-info d-flex align-center analyzeBTN"  >Analyze</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-12">
+    <div class="card" style="    height: 400px;">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-center">
+          <h5 class="m-0 font-weight-bold">Latest Vulnerable Projects</h5>
+          <p class="m-0 h6 font-weight-bold" style="color: #5EBB46;">View More <i class="bi bi-chevron-right"></i></p>
+        </div>
+         <div class="row mt-3">
+          <div class="col-4">
+            <div class="card" style="border-radius: 10px;">
+              <div class="upperbar">
+                <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> CICD Demo
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Componenets</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.components" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">3-Layer</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.threelayVuln" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Licenses</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.licenses" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2" >
+                  <p class="m-0">White . Blacklist</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/w.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].white}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/b.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].black}}</label>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">User Defined Issues</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].fn}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].source}}</label>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="bottombar d-flex justify-content-between" >
+               <p class="mt-2">Last Analysis: 2023.04.11. 15:15</p>
+               
+               <button type="button" class="btn btn-outline-info d-flex align-center analyzeBTN"  >Analyze</button>
+              
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-4">
+            <div class="card" style="border-radius: 10px;">
+              <div class="upperbar">
+                <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> MongoDB Scan
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Componenets</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.components" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">3-Layer</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.threelayVuln" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Licenses</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.licenses" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2" >
+                  <p class="m-0">White . Blacklist</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/w.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].white}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/b.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].black}}</label>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">User Defined Issues</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].fn}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].source}}</label>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="bottombar d-flex justify-content-between" >
+               <p class="mt-2">Last Analysis: 2023.04.11. 15:15</p>
+               
+               <button type="button" class="btn btn-outline-info d-flex align-center analyzeBTN"  >Analyze</button>
+              
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-4">
+            <div class="card" style="border-radius: 10px;">
+              <div class="upperbar">
+                <i class="bi bi-code h6" style="-webkit-text-stroke: 1px;"></i> nopCommerce
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Componenets</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.components" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">3-Layer</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.threelayVuln" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">Licenses</p>
+               
+                  <div class="d-flex">
+                    <button type="button" *ngFor="let item of cicdDemo.licenses" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                  </div>
+                
+                </div>
+
+                <div class="d-flex justify-content-between align-center mt-2" >
+                  <p class="m-0">White . Blacklist</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/w.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].white}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/b.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.whiteblack[0].black}}</label>
+                  </div>
+                
+                </div>
+                <div class="d-flex justify-content-between align-center mt-2">
+                  <p class="m-0">User Defined Issues</p>
+               
+                  <div class="d-flex">
+                    <img style="height: 22px;" class="mr-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].fn}}</label>
+                    <img style="height: 22px;" class="mr-1 ml-1" src="../../../assets/img/fn.png" alt=""> <label class="small  m-0" style="margin: 3px !important;">{{cicdDemo.UserDefinedIssues[0].source}}</label>
+                  </div>
+                
+                </div>
+              </div>
+              <div class="bottombar d-flex justify-content-between" >
+               <p class="mt-2">Last Analysis: 2023.04.11. 15:15</p>
+               
+               <button type="button" class="btn btn-outline-info d-flex align-center analyzeBTN"  >Analyze</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-12">
+    <div class="card p-4">
+      <div class="row">
+        <div class="col-12 d-flex px-0 pt-1">
+          <div class="d-flex btn btn1">
+            Owaspwebgoat php <i class="ml-3 bi bi-caret-right-fill"></i>
+          </div>
+          <div class="ml-2 d-flex btn btn1">
+            Execute
+          </div>
+          <div class="d-flex borderS ml-2">
+             <div class="ml-0 d-flex px-3 py-0  align-center icons btn" >
+              <i class="bi bi-funnel h6 m-0 text-white"></i>
+             </div>
+             <div class="ml-1 d-flex px-3 py-1  align-center icons btn" >
+              <i class="bi bi-magic h6 m-0 text-white"></i>
+             </div>
+             <div class="ml-1 d-flex px-3 py-1  align-center icons btn" >
+              <i class="bi bi-file-earmark-fill h6 m-0 text-white"></i>
+             </div>
+             <div class="ml-1 d-flex px-3 py-1 align-center icons mr-3 btn" >
+              <i class="bi bi-flag-fill h6 m-0 text-white"></i>
+             </div>
+          </div>
+
+          <div class="d-flex borderS ml-0 px-2">
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1 my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #F76924;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #F9C41B;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #329F1D;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #1D74BF;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: black;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+         </div>
+
+         <div class="d-flex borderS ml-2">
+
+          <div class="ml-0 d-flex px-3 pt-2 py-0 align-center icons2 btn" >
+            <i class="bi bi-file-earmark-text-fill h6"></i>
+          </div>
+          <div class="ml-1 d-flex px-3 pt-2  py-0 align-center icons2 btn" >
+            <i class="bi bi-file-earmark-arrow-up-fill h6"></i>
+          </div>
+
+       </div>
+        </div>
+
+        <div class="col-12 px-0 d-flex pt-1">
+          <div class="d-flex borderF ml-0 p-2 btn" >
+             File Path  <i class="bi bi-funnel mx-2 text-black"></i>
+          </div>
+
+          <div class="d-flex borderF ml-0 p-2 btn">
+            Line  <i class="bi bi-funnel mx-2 text-black"></i>
+         </div>
+
+         <div class="d-flex borderF ml-0 p-2 btn">
+         Source  <i class="bi bi-funnel mx-2 text-black"></i>
+       </div>
+
+       <div class="d-flex borderF ml-0 p-2 btn">
+        Active Guide  <i class="bi bi-funnel mx-2 text-black"></i>
+     </div>
+
+     <div class="d-flex borderF ml-0 p-2 btn">
+      Defect Description  <i class="bi bi-funnel mx-2 text-black"></i>
+   </div>
+
+   <div class="d-flex borderF ml-0 p-2 btn">
+    Trace Info  <i class="bi bi-funnel mx-2 text-black"></i>
+ </div>
+
+ <div class="d-flex borderF ml-0 p-2 btn">
+  Deets Status  <i class="bi bi-funnel mx-2 text-black"></i>
+</div>
+
+<div class="d-flex borderF ml-0 p-2 btn">
+   Comment  <i class="bi bi-funnel mx-2 text-black"></i>
+</div>
+        </div>
+
+
+        <div class="col-12 px-0 pt-1" >
+          <div class="d-flex btn btn1 pl-4 w-100" data-bs-toggle="collapse" data-bs-target="#collapseExample"  aria-controls="collapseExample">
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: red;"></i> Critical (24)
+          </div>
+          <div class="collapse" id="collapseExample">
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Cross Site Request Forgery (CRF) (3)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Cross Site Scripting (XSS) (23)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Information Leak through Error Message (33)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Leftover Debug Code (13)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Unrestricted Upload of file with Dangerious Tool (3)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Use of Insufficiently Random Value (3)
+            </div>
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: #F76924;"></i> Rec, High (24)
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: #FFF72C;"></i> Rec, Middle (24)
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: #4262D1;"></i> Rec, Low (24)
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: black;"></i> Info (1224)
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 d-flex">
+       
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill activeBTN">Rule Description</button>
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2">Rule Example</button>
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2">Rule Standard</button>
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2">Trace Info</button>
+      </div>
+
+      <div class="col-12">
+        <div class="card p-5 mt-4 d-flex justify-content-center align-center">
+          <i class="bi bi-file-earmark-fill h1" style="opacity: 0.4;"></i>
+          <h2 style="opacity: 0.4;">No Data Found</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="NewProject">
+  <div class="col flex1" [ngClass]="{'active':newProjectStep == 1 , 'completed':newProjectStep > 1}">
+    <div class="step-circle">
+      <div class="step-number">1</div>
+    </div>
+    <div class="step-info">Project Information</div>
+  </div>
+  <hr class="hr1" [ngClass]="{'activeHr':newProjectStep > 1}">
+  <div class="col text-center flex1" [ngClass]="{'active':newProjectStep == 2 , 'completed':newProjectStep > 2}">
+    <div class="step-circle">
+      <div class="step-number">2</div>
+    </div>
+    <div class="step-info">Analysis Target</div>
+  </div>
+  <hr class="hr2" [ngClass]="{'activeHr':newProjectStep > 2}">
+  <div class="col text-center flex1" [ngClass]="{'active':newProjectStep == 3 , 'completed':newProjectStep > 3}">
+    <div class="step-circle">
+      <div class="step-number">3</div>
+    </div>
+    <div class="step-info">Analysis Setting</div>
+  </div>
+  <hr class="hr3" [ngClass]="{'activeHr':newProjectStep > 3}">
+  <div class="col text-center flex1" [ngClass]="{'active':newProjectStep == 4 , 'completed':newProjectStep > 4}">
+    <div class="step-circle">
+      <div class="step-number">4</div>
+    </div>
+    <div class="step-info">Executive Analysis</div>
+  </div>
+</div>
+
+
+<div class="row mt-5 px-3" *ngIf="newProjectStep == 1 && NewProject && !PlusNew">
+  <div class="col-12 px-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Name</label>
+              <input placeholder="Project Name" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Description</label>
+              <textarea placeholder="Description" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Preset</label>
+              <input placeholder="Preset" type="text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-5 px-3" *ngIf="newProjectStep == 2 && NewProject && !PlusNew">
+  <div class="col-12 px-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 my-2 d-flex">
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1 my-0 btn text-white" style="background: #50C5D5 !important;">
+              <span class="me-2">Demo 3 Java Web</span>
+              <button type="button" class="btn-close" style="opacity: 0.2;" aria-label="Close" ></button>
+            </div>
+
+            <div class="add-icon ">
+              <a href="javascript:void(0);" (click)="plusNew()" class="addicon"
+                ><i class="bi bi-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Name</label>
+              <input placeholder="Project Name" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Description</label>
+              <textarea placeholder="Description" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Repository Type</label>
+              <input placeholder="Repository Type" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Access Address</label>
+              <input placeholder="Access Address" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Authorization Type</label>
+              <input placeholder="Authorization Type" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">SSH Private Key</label>
+              <input placeholder="SSH Private Key" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">SSH Private Key Password</label>
+              <input placeholder="SSH Private Key Password" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Default Path</label>
+              <input placeholder="Default Path" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Read Encoding</label>
+              <input placeholder="Read Encoding" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Write Encoding</label>
+              <input placeholder="Write Encoding" type="text">
+            </div>
+          </div>
+     
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-5 px-3" *ngIf="newProjectStep == 3 && NewProject && !PlusNew">
+  <div class="col-12 px-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 my-2 d-flex">
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1 my-0 btn text-white" style="background: #50C5D5 !important;">
+              <span class="me-2">Demo 3 Java Web</span>
+              <button type="button" class="btn-close" style="opacity: 0.2;" aria-label="Close" ></button>
+            </div>
+
+            <div class="add-icon ">
+              <a href="javascript:void(0);" (click)="plusNew()" class="addicon"
+                ><i class="bi bi-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Name</label>
+              <input placeholder="Project Name" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Description</label>
+              <textarea placeholder="Description" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Analyzer</label>
+              <input placeholder="Analyzer" type="text">
+            </div>
+          </div>
+          <div class="col-12">
+            
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-center justify-content-start my-2">
+                  <h6 class="card-title m-0">Analysis Filter</h6>
+                  <i class="bi bi-funnel-fill p-1 d-flex justify-content-center align-center tableIcon ml-3" ></i>
+                  <i class="bi bi-plus p-1 d-flex justify-content-center align-center tableIcon ml-1" ></i>
+                  <i class="bi bi-dash p-1 d-flex justify-content-center align-center tableIcon ml-1" ></i>
+
+                </div>
+                  <div class="table-responsive">
+                      <table class="table mb-0">
+                          <thead>
+                              <tr>
+                                <th> <input type="checkbox"> </th>
+                                  <th>Analysis Target</th>
+                                  <th>Filter Type</th>
+                                  <th>Filter Condtiton</th>
+                                  <th>Object Type</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr  *ngFor="let item of Step3Chart">
+                                  <td><input type="checkbox" [(ngModel)]="item.isChecked"></td>
+                                  <td>{{item.analtarget}}</td>
+                                  <td>{{item.ftype}}</td>
+                                  <td>{{item.fcondition}}</td>
+                                  <td>{{item.otype}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+
+          </div>
+
+          <div class="col-12">
+            <div class="form-group">
+              <label class="font-weight-bold">Ruleset</label>
+              <input placeholder="Ruleset" type="text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-5 px-3" *ngIf="newProjectStep == 4 && NewProject && !PlusNew">
+  <div class="col-12 mb-5">
+    <div class="card p-4">
+      <div class="row">
+        <div class="col-12 d-flex px-0 pt-1">
+          <div class="d-flex btn btn1">
+            Owaspwebgoat php <i class="ml-3 bi bi-caret-right-fill"></i>
+          </div>
+          <div class="ml-2 d-flex btn btn1">
+            Execute
+          </div>
+          <div class="d-flex borderS ml-2">
+            <div class="ml-0 d-flex px-3 py-0  align-center icons btn" >
+             <i class="bi bi-funnel h6 m-0 text-white"></i>
+            </div>
+            <div class="ml-1 d-flex px-3 py-1  align-center icons btn" >
+             <i class="bi bi-magic h6 m-0 text-white"></i>
+            </div>
+            <div class="ml-1 d-flex px-3 py-1  align-center icons btn" >
+             <i class="bi bi-file-earmark-fill h6 m-0 text-white"></i>
+            </div>
+            <div class="ml-1 d-flex px-3 py-1 align-center icons mr-3 btn" >
+             <i class="bi bi-flag-fill h6 m-0 text-white"></i>
+            </div>
+         </div>
+
+          <div class="d-flex borderS ml-0 px-2">
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1 my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #F76924;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #F9C41B;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #329F1D;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: #1D74BF;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+            <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1  my-0 btn" style="background: #F1F2FE !important;">
+              <span class="me-2"><i class="bi bi-flag-fill h5" style="color: black;"></i></span>
+              <button type="button" class="btn-close" aria-label="Close" ></button>
+            </div>
+         </div>
+
+         <div class="d-flex borderS ml-2">
+
+          <div class="ml-0 d-flex px-3 pt-2 py-0 align-center icons2 btn" >
+            <i class="bi bi-file-earmark-text-fill h6"></i>
+          </div>
+          <div class="ml-1 d-flex px-3 pt-2  py-0 align-center icons2 btn" >
+            <i class="bi bi-file-earmark-arrow-up-fill h6"></i>
+          </div>
+
+       </div>
+        </div>
+
+        <div class="col-12 px-0 d-flex pt-1">
+          <div class="d-flex borderF ml-0 p-2 btn" >
+             File Path  <i class="bi bi-funnel mx-2 text-black"></i>
+          </div>
+
+          <div class="d-flex borderF ml-0 p-2 btn">
+            Line  <i class="bi bi-funnel mx-2 text-black"></i>
+         </div>
+
+         <div class="d-flex borderF ml-0 p-2 btn">
+         Source  <i class="bi bi-funnel mx-2 text-black"></i>
+       </div>
+
+       <div class="d-flex borderF ml-0 p-2 btn">
+        Active Guide  <i class="bi bi-funnel mx-2 text-black"></i>
+     </div>
+
+     <div class="d-flex borderF ml-0 p-2 btn">
+      Defect Description  <i class="bi bi-funnel mx-2 text-black"></i>
+   </div>
+
+   <div class="d-flex borderF ml-0 p-2 btn">
+    Trace Info  <i class="bi bi-funnel mx-2 text-black"></i>
+ </div>
+
+ <div class="d-flex borderF ml-0 p-2 btn">
+  Deets Status  <i class="bi bi-funnel mx-2 text-black"></i>
+</div>
+
+<div class="d-flex borderF ml-0 p-2 btn">
+   Comment  <i class="bi bi-funnel mx-2 text-black"></i>
+</div>
+        </div>
+
+
+        <div class="col-12 px-0 pt-1" >
+          <div class="d-flex btn btn1 pl-4 w-100" data-bs-toggle="collapse" data-bs-target="#collapseExample"  aria-controls="collapseExample">
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: red;"></i> Critical (24)
+          </div>
+          <div class="collapse" id="collapseExample">
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Cross Site Request Forgery (CRF) (3)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Cross Site Scripting (XSS) (23)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Information Leak through Error Message (33)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Leftover Debug Code (13)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Unrestricted Upload of file with Dangerious Tool (3)
+            </div>
+            <div class="d-flex btn btn1  w-100" >
+              <i class="mr-3 bi bi-caret-right-fill"></i>  [sp] Use of Insufficiently Random Value (3)
+            </div>
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: #F76924;"></i> Rec, High (24)
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: #FFF72C;"></i> Rec, Middle (24)
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: #4262D1;"></i> Rec, Low (24)
+          </div>
+          <div class="d-flex btn btn1  pl-4 w-100" >
+            <i class="mr-3 bi bi-caret-right-fill"></i>  <i class="bi bi-flag-fill mr-2" style="color: black;"></i> Info (1224)
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 d-flex">
+       
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill activeBTN">Rule Description</button>
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2">Rule Example</button>
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2">Rule Standard</button>
+        <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2">Trace Info</button>
+      </div>
+
+      <!-- <div class="col-12">
+        <div class="card p-5 mt-4 d-flex justify-content-center align-center">
+          <i class="bi bi-file-earmark-fill h1" style="opacity: 0.4;"></i>
+          <h2 style="opacity: 0.4;">No Data Found</h2>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-5 px-3" *ngIf="PlusNew && NewProject">
+  <div class="col-12">
+      <div class="card">
+           <div class="row">
+            <div class="col-12">
+        <div class="card-body">
+          <p class="h6 m-0 font-weight-bold py-1">Analysis Filter</p>
+          <div class="table-responsive">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>
+                          <div class="d-flex justify-content-between">
+                            <div>Repository Type</div>
+                            <i class="bi bi-funnel-fill h6 m-0"></i>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="d-flex justify-content-between">
+                            <div>Name</div>
+                            <i class="bi bi-funnel-fill h6 m-0"></i>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="d-flex justify-content-between">
+                            <div>Defualt Setting</div>
+                            <i class="bi bi-funnel-fill h6 m-0"></i>
+                          </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let item of analysisTarget">
+                      <td class="productimgname d-flex align-center">
+                       
+                          <img src="../../../assets/img/image 4.png" alt="product" />
+                    
+                        <a href="javascript:void(0);">{{item.repoType}}</a>
+                      </td>
+                        
+                        <td>{{item.name}}</td>
+                        <td>{{item.defualtSetting}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+            </div>
+            <div class="col-12">
+        <div class="card-body">
+          <p class="h6 m-0 font-weight-bold py-1">Analysis Setting</p>
+          <div class="table-responsive">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>
+                          <div class="d-flex justify-content-between">
+                            <div>Repository Type</div>
+                            <i class="bi bi-funnel-fill h6 m-0"></i>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="d-flex justify-content-between">
+                            <div>Name</div>
+                            <i class="bi bi-funnel-fill h6 m-0"></i>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="d-flex justify-content-between">
+                            <div>Defualt Setting</div>
+                            <i class="bi bi-funnel-fill h6 m-0"></i>
+                          </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let item of analysisTarget">
+                      <td class="productimgname d-flex align-center">
+                       
+                          <img src="../../../assets/img/image 4 (1).png" alt="product" />
+                    
+                        <a href="javascript:void(0);">{{item.repoType}}</a>
+                      </td>
+                        
+                        <td>{{item.name}}</td>
+                        <td>{{item.defualtSetting}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+      
+        </div>
+
+        <div class="row p-4">
+          <div class="col-12">
+             <div class="d-flex">
+              <div class=" alert alert-light d-inline-flex align-items-center p-2 mr-1 my-0 btn text-black" style="background: #F1F2FE !important;">
+                <span class="me-2">Default Statics</span>
+                <i class="bi bi-question-circle ml-5"></i>
+              </div>
+              <div class="form-check form-switch ml-2">
+                <input class="form-check-input toggle1" type="checkbox" id="flexSwitchCheckChecked" checked>
+              </div>
+             </div>
+          </div>
+         </div>
+            </div>
+           </div>
+      </div>
+  </div>
+
+</div>
+
+<div class="col-12 Bbtndiv" *ngIf="NewProject">
+   <div>
+    <a href="javascript:void(0);" class="btn btn-submit me-2 btnWhite" *ngIf="newProjectStep > 1" (click)="previous()">Previous</a>
+    <a href="javascript:void(0);" class="btn btn-submit me-2 btnWhite" *ngIf="newProjectStep == 1 || PlusNew" (click)="SaveMoveSettings()">Save & Move To Project Settings</a>
+   </div>
+  <a href="javascript:void(0);" class="btn btn-submit me-2 " *ngIf="newProjectStep < 4 && !PlusNew" (click)="Next()">Next</a>
+  <a href="javascript:void(0);" class="btn btn-submit me-2 " *ngIf="newProjectStep == 4" (click)="Complete()">Complete</a>
+  <a href="javascript:void(0);" class="btn btn-submit me-2 " *ngIf="PlusNew" style="background: #5EBB46 !important;" (click)="executeanal()">Execute Analysis</a>
+
+
+</div>
+
+<div class="row p-4" *ngIf="projectDetails">
+  <div class="col-12 d-flex justify-content-between align-center">
+ 
+      <div class="d-flex">
+        <button type="button" class="btn btn-outline-dark left1" [ngClass]="{'btn-primary': cvss == 'V2'}" (click)="segmentChange('V2')">CVSS V2</button>
+        <button type="button" class="btn btn-outline-dark left1" [ngClass]="{'btn-primary': cvss == 'V3'}" (click)="segmentChange('V3')">CVSS V3</button>
+      </div>
+
+      <div class="d-flex">
+        <button type="button" class="btn btn-success"  (click)="downloadReport()">Download Report</button>
+        <button type="button" class="btn btn-primary ml-3"  (click)="CompareAnaylyis()">Compare Anaylyis</button>
+      </div>
+ 
+  </div>
+  <div class="col-12 mt-5 px-3">
+    <div class="card p-4">
+       <div class="row">
+        <div class="col-7">
+          <div style="width: 65%">
+            <div class="d-flex justify-content-between" >
+              <h5 class="m-0 font-weight-bold"> <i class="bi bi-code h5" style="-webkit-text-stroke: 1px;"></i> Demo Sample</h5>
+              <h5 class="m-0"> <i class="bi bi-clock-history h5"></i> 4/4th analysis <i class="bi bi-chevron-down"></i></h5>
+            </div>
+             
+            <div class="d-flex align-center justify-content-between mt-3">
+               <p class="m-0 text-start mr-1">Source</p>  
+               <div class="d-flex align-center">
+                <img src="../../../assets/img/image 4.png" class="mr-1" alt=""><a href="#" class="link-primary small">https://github.com/nonsSoltios/nopCommer..</a>  <i class="bi bi-box-arrow-up-right link-primary"></i>
+               </div>
+            </div>
+
+            <div class="d-flex align-center justify-content-between mt-3">
+              <p class="m-0 text-start mr-1">Repo</p>  
+               <label class="small">8,000 Files/9,161 Functions / 204,629 Lines/ 123.1MB</label>
+           </div>
+
+           <div class="mt-3 d-flex">
+            <p class="m-0 text-start mr-1">Target</p>  
+             <p><i class="bi bi-code h6 ml-3" style="-webkit-text-stroke: 1px;"></i> Develop</p>
+         </div>
+          </div>
+         
+        </div>
+
+        <div class="col-5 p-2">
+           <div class="row">
+            <div class="col-3">
+              <p>Language</p>
+            </div>
+            <div class="col-9">
+              <div class="progress-main1">
+                <div class="progress" [style.width]="projectLanguagePercentage.total_percentage + '%'">
+                  <div class="progress-bar" *ngFor="let item of projectLanguagePercentage.languages"
+                       [style.width]="item.percentage + '%'" [style.background]="item.color" >
+                  </div>
+              </div>
+               </div>
+
+               <div class="row">
+                <div class="col-12 d-flex align-center colshow" style="overflow: hidden;">
+                  <div *ngFor="let item of showlanguages" class="d-flex align-center">
+                    <div class="colrdiv mx-1" [style.background]="item.color">          
+                    </div>
+                    {{item.name}},{{item.percentage}}%
+                  </div>
+
+                  <i class="bi bi-chevron-down h6 mt-2 ml-1"></i>
+                </div>
+               </div>
+            </div>
+
+            <div class="col-12 col3 mt-4">
+              <div class="d-flex mt-2" >
+                <div class="d-flex align-center mr-2 firstLdiv" >
+                  S
+                </div>
+                 SHAHIDxYT
+                 <label class="ml-2">2023. 04. 04. 17:17 (1m 11s)</label>
+              </div>
+
+              <div class="input-group">
+                <i class="bi bi-pencil-square inpticon"></i>
+                <input type="text" class="form-control pl-5 my-1" placeholder="Enter a Description of the analysis history" aria-label="Username" aria-describedby="basic-addon1" style="border-radius: 20px;">
+              </div>
+            </div>
+           </div>
+        </div>
+
+
+
+       </div>
+    </div>
+
+    
+  </div>
+
+
+   <div class="col-4">
+    <div class="card" style="    height: 300px;">
+      <div class="card-body">
+        <h3 class="card-title text-center">Components</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <div id="chart">
+
+            <apx-chart
+              [series]="chartOptions3.series"
+              [chart]="chartOptions3.chart"
+              [labels]="chartOptions3.labels"
+              [grid]="chartOptions3.grid"
+              [plotOptions]="chartOptions3.plotOptions"
+              [responsive]="chartOptions3.responsive"
+              [colors]="chartOptions3.colors"
+              [dataLabels]="chartOptions3.dataLabels"
+            ></apx-chart>
+
+
+            <p class="h1 componentsChartno"  >301</p>
+            <!-- <p class="componentsCharttxt" >Orders</p> -->
+          </div>
+         
+        </div>
+      </div>
+    </div>
+   </div>
+
+   <div class="col-4">
+    <div class="card" style="    height: 300px;">
+      <div class="card-body">
+        <h3 class="card-title text-center">3-Layer Vuln.</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <div id="chart">
+
+            <apx-chart
+              [series]="chartOptions4.series"
+              [chart]="chartOptions4.chart"
+              [labels]="chartOptions4.labels"
+              [grid]="chartOptions4.grid"
+              [plotOptions]="chartOptions4.plotOptions"
+              [responsive]="chartOptions4.responsive"
+              [colors]="chartOptions4.colors"
+              [dataLabels]="chartOptions4.dataLabels"
+            ></apx-chart>
+
+
+            <p class="h1 componentsChartno"  style="left: 98px;" >10</p>
+            <!-- <p class="componentsCharttxt" >Orders</p> -->
+          </div>
+         
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+   <div class="col-4">
+    <div class="card" style="    height: 300px;">
+      <div class="card-body">
+        <h3 class="card-title text-center">License</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <div id="chart">
+
+            <apx-chart
+              [series]="chartOptions5.series"
+              [chart]="chartOptions5.chart"
+              [labels]="chartOptions5.labels"
+              [grid]="chartOptions5.grid"
+              [plotOptions]="chartOptions5.plotOptions"
+              [responsive]="chartOptions5.responsive"
+              [colors]="chartOptions5.colors"
+              [dataLabels]="chartOptions5.dataLabels"
+            ></apx-chart>
+
+
+            <p class="h1 componentsChartno"  style="left: 80px; top: -21px;"  >301</p>
+            <!-- <p class="componentsCharttxt" >Orders</p> -->
+          </div>
+         
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+   <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">White - Blacklist</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <img style="height: 32px;" class="mr-2" src="../../../assets/img/w.png" alt=""> <label class="h6 m-0 ">0</label>
+          <img style="height: 32px;" class="mr-2 ml-4" src="../../../assets/img/b.png" alt=""> <label class="h6 m-0">0</label>
+         
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">User Defined Issues</h3>
+         <div class="d-flex justify-content-center align-center mt-3">
+
+          <img style="height: 32px;" class="mr-2" src="../../../assets/img/fn.png" alt=""> <label class="h6 m-0 ">0</label>
+          <img style="height: 32px;" class="mr-2 ml-4" src="../../../assets/img/fn.png" alt=""> <label class="h6 m-0">0</label>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 d-flex">
+       
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill activeBTN gg"><i class="bi bi-pie-chart-fill mr-2"></i> Summary</button>
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2 gg"><i class="bi bi-bounding-box mr-2"></i> SBOM  <i class="ml-2 bi bi-chevron-down"></i></button>
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2 gg"><i class="bi bi-flower3 mr-2"></i> 3-Layer Vuln.(10)  <i class="ml-2 bi bi-chevron-down"></i></button>
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2 gg"><i class="bi bi-bag-plus mr-2"></i> Patch Recommendations  <i class="ml-2 bi bi-chevron-down"></i></button>
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2 gg"><i class="bi bi-shield-check mr-2"></i> Licenses  <i class="ml-2 bi bi-chevron-down"></i></button>
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill ml-2 gg"><i class="bi bi-file-earmark-medical mr-2"></i> User Defined Issue(0)  <i class="ml-2 bi bi-chevron-down"></i></button>
+    <button type="button"  class="btn btn-white p-2 px-4 rounded-pill gg"><i class="bi bi-gear mr-2"></i> Project Settings </button>
+
+
+
+  </div>
+
+
+  <div class="col-12 mt-4">
+     <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 d-flex align-center justify-content-between">
+            <div class="text-center">
+              <h3>Summary</h3>
+              <p>Analysis Result</p>
+            </div>
+    
+            <div >
+              <button type="button" class="btn btn-outline-dark">Analysis Summary  <i class="ml-2 bi bi-download"></i></button>
+            </div>
+          </div>
+
+          <div class="row my-4">
+              <div class="col-4 d-flex justify-content-center">
+                <div class="stepsdiv align-center justify-content-center">
+                  <p><span class="span1">Step1:</span> Software Map</p>
+                </div>
+              </div>
+              <div class="col-4 d-flex justify-content-center">
+                <div class="stepsdiv align-center justify-content-center">
+                  <p><span class="span1">Step2:</span> SBOM</p>
+                </div>
+              </div>
+              <div class="col-4 d-flex justify-content-center">
+                <div class="stepsdiv d-flex align-center justify-content-center">
+                  <p><span class="span1">Step3:</span>  Software Risk</p>
+                </div>
+              </div>
+          </div>
+
+
+    <div class="col-8">
+      <div class="row">
+
+
+        <div class="col-6">
+          <div class="d-flex align-center justify-content-center divcolor" style="background: #FBF6B6;">
+            <div class="stepsdiv d-flex align-center justify-content-center" style="background: #FFFFFF !important;">
+              <p>  Developed Code   <span class="span1">88.5%</span></p>
+            </div>
+          </div>
+         
+            <div class="d-flex align-center justify-content-between mt-2">
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #FBF6B6;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">Created Code</p>
+                      <label class="text3">100%</label>
+                  </div> 
+                 </div>
+
+
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #FBF6B6;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">Modified Code</p>
+                      <label class="text3 text-right" style="width: 100%;">100%</label>
+                  </div> 
+                 </div>
+            </div>
+    
+        </div>
+
+
+        <div class="col-6">
+          <div class="d-flex align-center justify-content-center divcolor" style="background: linear-gradient(90deg, rgba(251,246,182,1) 51%, rgba(237,230,158,1) 51%);">
+         
+          </div>
+         
+            <div class="d-flex align-center justify-content-between mt-2">
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #FBF6B6;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">User Defined comp
+                        </p>
+                      <label class="text3">N/A</label>
+                  </div> 
+                 </div>
+
+
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #EDE69E;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">Function Comp
+                        </p>
+                      <label class="text3 text-right" style="width: 100%;">N/A</label>
+                  </div> 
+                 </div>
+            </div>
+    
+        </div>
+
+
+        <div class="col-6 mt-3">
+          <div class="d-flex align-center justify-content-center divcolor" style="background: #B3DFC4;">
+            <div class="stepsdiv d-flex align-center justify-content-center" style="background: #FFFFFF !important;">
+              <p>  Developed Code   <span class="span1">11.5%</span></p>
+            </div>
+          </div>
+         
+            <div class="d-flex align-center justify-content-between mt-2">
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #B3DFC4;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">Full Copy</p>
+                      <label class="text3">100%</label>
+                  </div> 
+                 </div>
+
+
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #B3DFC4;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">Partial Copy</p>
+                      <label class="text3 text-right" style="width: 100%;">100%</label>
+                  </div> 
+                 </div>
+            </div>
+    
+        </div>
+
+
+        <div class="col-6 mt-3">
+          <div class="d-flex align-center justify-content-center divcolor" style="background: #B3DFC4;">
+         
+          </div>
+         
+            <div class="d-flex align-center justify-content-between mt-2">
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #B3DFC4;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">100% Match File
+                       
+                        </p>
+                      <label class="text3"> Comp.0</label>
+                  </div> 
+                 </div>
+
+
+                 <div class="d-flex align-center">
+                  <div class="color2 mr-1" style="background: #B3DFC4;">
+        
+                  </div>
+                   <div>
+                      <p class="m-0 text3">Portial Matech
+                        
+                        </p>
+                      <label class="text3 text-right" style="width: 100%;">File Comp.5</label>
+                  </div> 
+                 </div>
+            </div>
+    
+        </div>
+
+
+
+
+        <div class="col-6 mt-3">
+          <div class="d-flex align-center justify-content-center divcolor" style="background: #A5C3DD;">
+            <div class="stepsdiv d-flex align-center justify-content-center" style="background: #FFFFFF !important;">
+              <p>  Linked OSS  </p>
+            </div>
+          </div>
+        
+    
+        </div>
+
+
+        <div class="col-6 mt-3">
+          <div class="d-flex align-center justify-content-center divcolor" style="background: #A5C3DD;">
+         
+          </div>
+         
+         
+    
+        </div>
+
+
+      </div>
+    </div>  
+    
+    <div class="col-4 px-3">
+      <div class="p-2 d-flex justify-content-between divText">
+        <p class="font-weight-bold m-0"> 3- Layer Vulenability </p>
+        <p class="font-weight-bold m-0"> 10 </p>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12">
+          
+            
+              <div class="d-flex justify-content-between align-center mt-2">
+                <p class="m-0 tt2">Friction Vulnerability</p>
+             
+                <div class="d-flex">
+                  <button type="button" *ngFor="let item of projectDetailsAnaysis.frictionVul" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                </div>
+              
+              </div>
+              <div class="d-flex justify-content-between align-center mt-2">
+                <p class="m-0 tt2">File Vulnerability</p>
+             
+                <div class="d-flex">
+                  <button type="button" *ngFor="let item of projectDetailsAnaysis.fileVul" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                </div>
+              
+              </div>
+
+              <div class="d-flex justify-content-between align-center mt-2">
+                <p class="m-0 tt2">File Vulnerability</p>
+             
+                <div class="d-flex">
+                  <button type="button" *ngFor="let item of projectDetailsAnaysis.fileVul2" class="btn btn-primary rounded-pill tagBTN d-flex align-center" [style.background]="item.color+'!important'">{{item.value}}</button>
+                </div>
+              
+              </div>
+
+         
+        
+
+      </div>
+
+      
+    </div>
+
+    <div class="p-2 d-flex justify-content-between divText mt-4 align-center">
+      <p class="font-weight-bold m-0"> User Defined Vuln. </p>
+      <p class="font-weight-bold m-0"><img style="height: 16px;" class="mr-2 mt-1" src="../../../assets/img/fn.png" alt=""> <label class="small m-0 font-weight-bold"> 4</label> </p>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <button type="button" *ngFor="let item of projectDetailsAnaysis.userDvul" class="btn btn-primary rounded-pill tagBTN d-flex align-center " [style.background]="item.color+'!important'">{{item.value}}</button>
+    </div>
+
+
+    <div class="p-2 d-flex justify-content-between divText mt-4 align-center">
+      <p class="font-weight-bold m-0"> License Issues </p>
+      <p class="font-weight-bold m-0"><img style="height: 16px;" class="mr-2 mt-1" src="../../../assets/img/fn.png" alt=""> <label class="small m-0 font-weight-bold"> 4</label> </p>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <button type="button" *ngFor="let item of projectDetailsAnaysis.LicenseIssues" class="btn btn-primary rounded-pill tagBTN d-flex align-center " [style.background]="item.color+'!important'">{{item.value}}</button>
+    </div>
+
+
+        </div>
+
+
+      </div>
+     </div>
+  </div>
+</div>
+
+
+
+<div class="col-12 mt-3">
+  <div class="card">
+    <div class="card-body">
+        <div class="card-title">
+          White-Blacklist
+        </div>
+          
+        <div class="d-flex justify-content-center align-center">
+          <div class="text-center">
+            <p>Cve</p>
+            <div class="d-flex justify-content-center align-center mt-3">
+             
+              <img style="height: 42px;" class="mr-2" src="../../../assets/img/w.png" alt=""> <label class="h6 m-0 ">0</label>
+              <img style="height: 42px;" class="mr-2 ml-4" src="../../../assets/img/b.png" alt=""> <label class="h6 m-0">0</label>
+             
+            </div>
+          </div>
+  
+          <div class="text-center ml-5">
+            <p>CWE</p>
+            <div class="d-flex justify-content-center align-center mt-3">
+             
+              <img style="height: 42px;" class="mr-2" src="../../../assets/img/w.png" alt=""> <label class="h6 m-0 ">0</label>
+              <img style="height: 42px;" class="mr-2 ml-4" src="../../../assets/img/b.png" alt=""> <label class="h6 m-0">0</label>
+             
+            </div>
+          </div>
+          
+  
+          <div class=" text-center ml-5">
+            <p>Components</p>
+            <div class="d-flex justify-content-center align-center mt-3">
+             
+              <img style="height: 42px;" class="mr-2" src="../../../assets/img/w.png" alt=""> <label class="h6 m-0 ">0</label>
+              <img style="height: 42px;" class="mr-2 ml-4" src="../../../assets/img/b.png" alt=""> <label class="h6 m-0">0</label>
+             
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+

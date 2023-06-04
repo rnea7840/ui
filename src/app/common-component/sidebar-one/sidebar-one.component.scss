@@ -1,0 +1,35 @@
+.none {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}
+
+#sidebar .sidebar-inner {
+  width: 100%;
+}
+
+.mainactive {
+  background: #1b2850;
+  color: #fff;
+  border-radius: 5px;
+}
+.bottom-content {
+  position: absolute;
+  bottom: 30px;
+  margin-left: 30px;
+  width: 100%;
+}
+
+.imgg{
+  margin-bottom: 20px;
+  height: 50px;
+  width: 153px;
+}
+
+.imglogout{
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}

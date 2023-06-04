@@ -1,0 +1,92 @@
+<div class="row p-3" style="height: 55px;">
+  <div class="col-7">
+  <h2 >
+     Groups
+  </h2>
+  </div>
+  <div class="col-5">
+    <ul class="d-flex">
+      <li>
+          <button type="button" name="" id="" class="btn btn-primary button1" (click)="createNewProject()" >+ Create New Project</button>
+      </li>
+      <li class="p-2 mx-3">
+        <i class="bi bi-bell-fill h4" type="button"></i>
+      </li>
+      <li>
+        <ul class="list-unstyled">
+          <li class="media">
+  <div class="imgMedia" type="button">
+    <img src="../../../assets/img/Ellipse 32.png"  alt="User Image">
+  </div>
+            <div class="media-body pl-2 mt-1" type="button">
+              <p class="m-0">Hello,</p>
+              <h4 class="m-0 txt">Deniz Warren</h4>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+
+
+  <div class="mt-5">
+    <div class="container p-3" *ngFor="let item of data" >
+      <i class="fas fa-cog settings-icon" type="button" (click)="toggleSidebar()"></i>
+      <nav id="sidebar" [ngClass]="{'active': isSidebarOpen}">
+        <p class="label1">
+          <i class="ion-close settings-icon" style="color: black;"  data-bs-toggle="tooltip" title="ion-close" (click)="toggleSidebar()" type=button></i>
+          <b class="navhead">Create a new group</b>
+          <ng-container>
+            <p class="text3"><b>Group Name</b></p>
+            <input type="text" class="form-control navinput" placeholder="Group Name" label-placement="floating">
+          </ng-container>
+          <ng-container class="navinput2">
+            <p class="text4"><b>Members</b></p>
+            <input type="text" class="form-control navinput" placeholder="Members" label-placement="floating">
+          </ng-container>
+      </p>
+      <div class="container con2">
+        <div class="imgMedia">
+          <img src="../../../assets/img/Ellipse 32.png"  alt="User Image">
+        </div>
+        <span class="close-icon">&times;</span>
+      </div>
+      <p class="ptext"><b>Permissions</b></p>
+      <div class="form-check form-switch toogle">
+        <input class="form-check-input toogler" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+        <label class="form-check-label" for="flexSwitchCheckDefault"><p  class="toogletext">View</p></label>
+      </div>
+      <div class="form-check form-switch toogle">
+        <input class="form-check-input toogler" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault"><p  class="toogletext">Edit</p></label>
+      </div>
+      <div class="form-check form-switch toogle">
+        <input class="form-check-input toogler" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault"><p class="toogletext">Delete</p></label>
+      </div>
+      <div class="button-container">
+        <button class="button" style="background-color: white;"><p class="btntext" style="color: black;" (click)="toggleSidebar()">Cancel</p></button>
+        <button class="button"><p class="btntext">Create</p></button>
+      </div>
+      </nav>
+  <p class="label1">
+      <b>{{item.name}}</b>
+  </p>
+  <div style="display: flex; justify-content: space-between;" >
+      <p class="text1">Members</p>
+      <p class="text1">Created On</p>
+      <p class="text1">Permissions</p>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <p class="text2">{{item.members}}</p>
+      <p class="text2">{{item.created}}</p>
+      <p class="text2" type="button">{{item.permission}}</p>
+    </div>
+  </div>
+  </div>
+
+
+
+

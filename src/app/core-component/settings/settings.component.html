@@ -1,0 +1,151 @@
+
+<div class="row p-3" style="    height: 55px;">
+  <div class="col-7">
+  <h2 >
+     Settings
+  </h2>
+  </div>
+  <div class="col-5">
+    <ul class="d-flex">
+      <li>
+          <button type="button" name="" id="" class="btn btn-primary button1" (click)="createNewProject()" >+ Create New Project</button>
+      </li>
+      <li class="p-2 mx-3">
+        <i class="bi bi-bell-fill h4"></i>
+      </li>
+      <li>
+        <ul class="list-unstyled">
+          <li class="media">
+  <div class="imgMedia">
+    <img src="../../../assets/img/Ellipse 32.png"  alt="User Image">
+  </div>
+            <div class="media-body pl-2 mt-1">
+              <p class="m-0">Hello,</p>
+              <h4 class="m-0 txt">Deniz Warren</h4>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    </div>
+    
+  </div>
+
+
+
+  <div class="p-4">
+    
+    <div class="segment" (click)="handleClick('General')" [ngClass]="{'active': activeSegment === 'General'}">General</div>
+    <div class="segment" (click)="handleClick('SAST')" [ngClass]="{'active': activeSegment === 'SAST'}">SAST</div>
+    <div class="segment" (click)="handleClick('KICS')" [ngClass]="{'active': activeSegment === 'KICS'}">KICS</div>
+    <div class="segment" (click)="handleClick('SCA')" [ngClass]="{'active': activeSegment === 'SCA'}">SCA</div>
+    <div class="segment" (click)="handleClick('SMC')" [ngClass]="{'active': activeSegment === 'SMC'}">SMC</div>
+    <div class="segment" (click)="handleClick('Organizations')" [ngClass]="{'active': activeSegment === 'Organizations'}">Organizations</div>
+    <div class="segment" (click)="handleClick('Settings')" [ngClass]="{'active': activeSegment === 'Settings'}"><b>Settings</b></div>
+  </div>
+  
+
+<div *ngIf="activeSegment === 'SAST'; else blankPage">
+  <div class="container">
+
+    <div class="col-12">
+      <div class="container2">
+          <p class="text4">Preset Name</p>
+          <p class="text3">Allow Override</p>
+        </div>
+      <div class="input-group">
+        <input type="text" class="form-control input1"  placeholder="ASA Premium">
+        <div class="input-group-append">
+          <span class="input-group-text delete-icon span">
+            <img src="../../../assets/img/Group.svg" class="delete-icon1"  type="button" alt="">
+          </span>
+          <span class="input-group-text span">
+            <input type="checkbox" class="font-size: 18px;" checked>
+          </span>            
+        </div>
+        
+      </div>
+    </div>
+
+      <div class="col-12">
+        <div class="container2">
+            <p class="text4">Filter</p>
+          </div>
+        <div class="input-group">
+          <input type="text" class="form-control input1" placeholder="Type here">
+          <div class="input-group-append" >
+            <span class="input-group-text delete-icon span">
+              <img src="../../../assets/img/Group.svg" class="delete-icon1"  type="button" alt="">
+            </span>
+            <span class="input-group-text span">
+              <input type="checkbox" class="font-size: 18px;" checked>
+            </span>            
+          </div>
+          
+        </div>
+      </div>
+
+
+        <div class="col-12">
+          <div class="container2">
+              <p class="text4">Incremental</p>
+            </div>
+          <div class="input-group">
+            <input type="text" class="form-control input1">
+            <div class="input-group-append">
+              <span class="input-group-text delete-icon span">
+                <img src="../../../assets/img/Group.svg" class="delete-icon1"  type="button" alt="">
+              </span>
+              <span class="input-group-text span">
+                <input type="checkbox" class="font-size: 18px;" checked>
+              </span>              
+            </div>
+            
+          </div>
+        </div>
+    
+    
+        <div class="col-12">
+          <div class="container2">
+              <p class="text4">Engine Verbose</p>
+            </div>
+          <div class="input-group">
+            <input type="text" class="form-control input1">
+            <div class="input-group-append">
+              <span class="input-group-text delete-icon span">
+                <img src="../../../assets/img/Group.svg" class="delete-icon1" type="button" alt="">
+              </span>
+              <span class="input-group-text span">
+                <input type="checkbox" class="font-size: 18px;" checked>
+              </span>              
+            </div>
+            
+          </div>
+        </div>
+    
+  
+        <div class="col-12">
+          <div class="container2">
+              <p class="text4">Language Modal</p>
+            </div>
+          <div class="input-group">
+            <input type="text" class="form-control input1">
+            <div class="input-group-append">
+              <span class="input-group-text delete-icon span">
+                <img src="../../../assets/img/Group.svg" class="delete-icon1"  type="button" alt="">
+              </span>
+              <span class="input-group-text span">
+                <input type="checkbox" class="font-size: 18px;" checked>
+              </span>              
+            </div>
+            
+          </div>
+        </div>
+
+  </div>
+  <button class="button"><p class="btntext">Save</p></button>
+  
+</div>
+<ng-template #blankPage>
+</ng-template>
+ 

@@ -1,0 +1,360 @@
+h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.button1{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 30px;
+background: #1E2D60 !important;
+border: #1E2D60 !important;
+padding:5px 20px;
+}
+
+div{
+    font-family: Inter !important;
+    
+}
+.imgMedia{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    overflow: hidden;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.txt{
+    font-family: Inter;
+font-size: 16px;
+font-weight: 600;
+line-height: 19px;
+letter-spacing: 0em;
+
+}
+
+#chart {
+    max-width: 380px;
+    margin: 35px auto;
+    padding: 0;
+  }
+.vul{
+    position: relative;
+    top: -88px;
+    left: 109px;
+    font-family: Inter;
+}  
+.vulcount{
+  position: relative;
+  top: -78px;
+  left: 123px;
+    font-family: Inter;
+font-size: 26px;
+font-weight: 700;
+line-height: 31px;
+letter-spacing: 0px;
+
+
+}
+
+.upperbar{
+    background: #DDE0FF66; height: 55px; width: 100%;border-radius:10px 10px 0px 0px;
+    padding: 13px;
+    font-family: Inter;
+font-size: 16px;
+font-weight: 600;
+
+
+}
+
+.bottombar{
+    background: #F1F2FE; height: 55px; width: 100%;border-radius:0px 0px 10px 10px;
+    font-family: Inter;
+    padding: 13px;
+font-size: 12px;
+
+}
+
+.analyzeBTN{
+    border-color: #191C52 !important; border-radius: 20px; color: #191C52 !important;
+}
+
+.tagBTN{
+    width: 35px;
+    height: 22px;
+    margin-left: 2px;
+    font-size: 10px;
+    border: none !important;
+}
+.btn1{
+    padding: 9px;
+    border: 1px solid #e4e4e4;
+    width: fit-content;
+}
+.icons{
+    background: #14589D !important; border-radius: 5px;
+}
+
+.borderS{
+    border-right: 1px solid #e4e4e4;
+    width: fit-content;
+
+}
+.borderF{
+    border: 1px solid #e4e4e4;
+    width: fit-content;
+    border-radius: 5px;
+   font-size: 16px !important;
+}
+.icons2{
+    border-color: #14589D !important; border-radius: 5px;
+    border: 1px solid;
+    color: #14589D !important;
+}
+
+.step-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    margin-bottom: 10px;
+    padding: 10px !important;
+  }
+  
+  .step-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: black !important;
+
+  }
+  
+  .step-info {
+    font-size: 14px;
+    color: black !important;
+  }
+  .flex1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hr3 , .hr1 , .hr2{
+    width: 100px;
+    position: relative;
+    top: 15px;
+    left: 4px;
+    height: 2px;
+    height: 2px; 
+    background-color: #333333; 
+    border: none;
+  }
+
+  .completed{
+    .step-circle{
+        background: #5EBB46 !important;
+    }
+    .step-number{
+        color: white !important;
+    }
+    .step-info{
+        color:  #5EBB46 !important;
+    }
+
+  }
+
+  .active{
+    .step-circle{
+        border: 1px solid #5EBB46 !important;
+    }
+    .step-number{
+        color: #5EBB46 !important;
+    }
+    .step-info{
+        color:  #5EBB46 !important;
+    }
+
+  }
+
+  .activeHr{
+    background-color:  #5EBB46 !important;
+  }
+  .Bbtndiv{
+    position: absolute;
+    bottom: -36px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-submit{
+    background: #1E2D60;
+  }
+  .addicon{
+    background: none !important;
+    border: 1px solid black  !important;
+    color: black !important;
+    font-size: 23px ;
+  }
+
+  table{
+    background: #F4F5FF  !important;
+     tr{
+        border-radius: 10px !important;
+     }
+    th,td{
+        
+    background: #F4F5FF  !important;
+    border: 1px solid rgb(173, 173, 173) !important;
+    }
+
+  
+  }
+
+  .tableIcon{
+    background: #1E2D60 !important;
+    border-radius: 100%;
+    color: white;
+}
+
+.activeBTN{
+    background: #1E2D60 !important;
+    color: white !important;
+}
+.left1{
+  border-radius: 0px !important;
+}
+
+    
+.toggle1{
+    height: 39px;
+    width: 80px;
+    // background: #F1F2FE !important;
+}
+
+.btnWhite{
+    background: white !important;
+    color: black;
+    font-weight: 1000;
+    border: 1px solid black !important;
+}
+.btn-success{
+  background:  #5EBB46 !important;
+  border-color:  #5EBB46 !important;
+}
+
+.progress-main1{
+  background: #E0E0E2;
+    border-radius: 10px;
+    .progress{
+  background: #E0E0E2 !important;
+
+    }
+}
+
+.colrdiv{
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+}
+.colshow{
+  overflow: hidden;
+  background: #efefef;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+.col3{
+  background: #F5F6FA;
+  height: 80px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.inpticon{
+  position: absolute;
+  top: 8px;
+  z-index: 300;
+  font-size: 22px;
+  left: 12px;
+}
+
+.firstLdiv{
+  width: 20px; height: 20px; border-radius: 100%; border: 1px solid black
+}
+
+.componentsCharttxt{
+  position: absolute;
+  top: 173px;
+  left: 89px;
+  font-family: Inter;
+}
+
+.componentsChartno{
+  position: relative;
+  top: -34px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0px;
+  left: 90px;
+}
+
+.gg{
+  height: 32px !important;
+  font-size: 11px;
+}
+
+.stepsdiv{
+  height: 30px;
+  width: 100%;
+  background: #F4F4F4 !important;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.span1{
+  opacity: 0.5;
+}
+
+.divcolor{
+  padding: 30px 20px;
+  border-radius: 10px;
+  height: 88px;
+  width: 100%;
+}
+
+.color2{
+  height: 12px;
+  width: 12px;
+  margin-top: -23px;
+}
+
+.text3{
+  line-height: 1px;
+  font-size: 10px;
+}
+
+.divText{
+  border: 1px solid black;
+  border-radius: 10px;
+   font-size: 12px;
+}
+.tt2{
+  font-size: 13px;
+}

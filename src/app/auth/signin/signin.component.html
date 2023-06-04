@@ -1,0 +1,43 @@
+<div class="account-content" [style.height]="showSignUpClicked ? '110vh' : '100vh'" style="background-image: url(../../../assets/img/philipp-katzenberger-iIJrUoeRoCQ-unsplash\ 1.png);">
+  <div class="signin-div">
+    <img class="logo" src="../../../assets/img/logo-small.png" alt="">
+    <p class="login-text mt-2">
+      <span class="clear-changes mr-2" (click)="clearChanges()" type="button">{{ forgotPasswordClicked || is_forgetPasswordRequestAccepted ? '&larr;' : '' }}</span>
+      <b>{{ forgotPasswordClicked ? 'Reset' :  showSignUpClicked? 'Signup' : is_forgetPasswordRequestAccepted ? 'Reset Password' :'Login' }}
+      </b></p>
+    <p class="text2">{{ forgotPasswordClicked ? 'Enter your registered email and we will send you an email' : is_forgetPasswordRequestAccepted ? 'Enter new password' :'Login with email and password' }}
+      {{ showSignUpClicked ? 'OR Create Your account' : '' }}
+    </p>  
+    <ng-container *ngIf="showSignUpClicked && !is_forgetPasswordRequestAccepted">
+      <p class="text3"><b>Full Name</b></p>
+      <input type="text" class="form-control input1" placeholder="Full Name" label-placement="floating">
+    </ng-container>
+    <p class="text3" *ngIf="!is_forgetPasswordRequestAccepted"><b>Email</b></p>
+    <input type="text" *ngIf="!is_forgetPasswordRequestAccepted" class="form-control input1" placeholder="Email" label-placement="floating">
+    <ng-container *ngIf="!forgotPasswordClicked || is_forgetPasswordRequestAccepted">
+      <p class="text3"><b>Password</b></p>
+      <input type="password" class="form-control input1" placeholder="Password" label-placement="floating">
+    </ng-container>
+    <ng-container *ngIf="showSignUpClicked || is_forgetPasswordRequestAccepted">
+      <p class="text3"><b>Confirm Passeword</b></p>
+      <input type="password" class="form-control input1" placeholder="Confirm Passeword" label-placement="floating">
+    </ng-container>
+    <div class="form-check" *ngIf="!showSignUpClicked && !is_forgetPasswordRequestAccepted && !forgotPasswordClicked">
+      <input class="form-check-input input3" type="checkbox" value="" id="flexCheckDefault">
+       
+      <div class="d-flex justify-content-between align-center" >
+        <label class="form-check-label text4" for="flexRadioDefault2">
+          Keep me signed in
+        </label>
+        <label class="text5" (click)="forget()">
+          <b>{{ forgotPasswordClicked ? '' : 'Forgot password?' }}
+          </b>
+        </label>
+      </div>
+    </div>
+    <button class="button1"><p class="text6" (click)="submit()">{{ forgotPasswordClicked ? 'Submit' :  showSignUpClicked? 'Signup' : is_forgetPasswordRequestAccepted ? 'Update' :'Login' }}</p></button>
+    <p class="text7" (click)="signup()" *ngIf="!is_forgetPasswordRequestAccepted && !forgotPasswordClicked"><b></b> {{ showSignUpClicked ? 'Already have an account? Login' : 'Dont have an account? Sign Up' }}</p>
+
+  </div>
+</div>
+

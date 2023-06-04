@@ -1,0 +1,140 @@
+.container{
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    border-radius: 10px;
+    position: relative;
+    margin-top: 0;
+}
+.text2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #212121;
+    margin-top: 20px;
+    flex-basis: 35%;
+}
+.input{
+   width: 70%;
+   margin-top: 20px;
+}
+.segment {
+    display: inline-block;
+    margin-right: 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    --background-color: rgba(255, 255, 255, 0);
+    font-weight: bolder;
+    color: #4D4D4D
+  }
+
+.segment.active {
+    text-decoration: underline;
+    color: darkblue;
+}
+  .form-control1{
+    display: flex;
+    align-items: center;
+  }
+
+  .delete-icon1{
+
+    height: 20px;
+    width: 20px;
+  }
+  .span{
+    background: none;
+    border: none;
+  }
+  .check{
+    height: 100px;
+  }
+  .container2{
+    display: flex;
+    justify-content: space-between;
+  }
+  .text3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #212121;
+    margin-top: 10px;
+}
+.text4{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #212121;
+    margin-top: 20px;
+    flex-basis: 35%;
+    margin-bottom: 15px;
+}
+.button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1E2D60;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    height: 40px;
+    width: 20%;
+  }
+  .btntext{
+    font-family: 'Inter';
+    color: white;
+  }
+
+  h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.button1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 30px;
+    background: #1E2D60 !important;
+    border: #1E2D60 !important;
+    padding:5px 20px;
+}
+
+div{
+    font-family: Inter !important;
+    
+}
+.imgMedia{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    overflow: hidden;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.txt{
+  font-family: Inter;
+font-size: 16px;
+font-weight: 600;
+line-height: 19px;
+letter-spacing: 0em;
+
+}
